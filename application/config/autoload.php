@@ -39,7 +39,6 @@
 
 $autoload['packages'] = array();
 
-
 /*
 | -------------------------------------------------------------------
 |  Auto-load Libraries
@@ -52,8 +51,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array();
-
+$autoload['libraries'] = array('database', 'session');
 
 /*
 | -------------------------------------------------------------------
@@ -65,7 +63,6 @@ $autoload['libraries'] = array();
 */
 
 $autoload['helper'] = array();
-
 
 /*
 | -------------------------------------------------------------------
@@ -82,7 +79,6 @@ $autoload['helper'] = array();
 
 $autoload['config'] = array();
 
-
 /*
 | -------------------------------------------------------------------
 |  Auto-load Language files
@@ -98,7 +94,6 @@ $autoload['config'] = array();
 
 $autoload['language'] = array();
 
-
 /*
 | -------------------------------------------------------------------
 |  Auto-load Models
@@ -110,7 +105,6 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array();
-
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */
