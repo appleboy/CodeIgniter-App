@@ -1,4 +1,4 @@
-# CodeIgniter-App
+# CodeIgniter App
 
 
 Integrate RESTfull API, Base Model, Ion Auth module and template module.
@@ -11,7 +11,7 @@ add new virtual hostname on `hosts` file (`/etc/hosts`)
 127.0.0.1 ci.localhost
 ```
 
-create `.htaccess` for apache
+[Apache](http://httpd.apache.org/): create `.htaccess`.
 
 ```
 RewriteEngine on
@@ -20,7 +20,7 @@ RewriteCond $1 !^(index\.php|assets|robots\.txt|$)
 RewriteRule ^(.*)$ index.php/$1 [L,QSA]
 ```
 
-please add the following to virtualhost config for nginx.
+[Nginx](http://nginx.org/): please add the following to virtualhost config.
 
 ```
 location / {
