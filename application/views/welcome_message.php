@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title><?php echo lang('welcome_header'); ?></title>
 
 	<style type="text/css">
 
@@ -47,7 +47,7 @@
 	#body{
 		margin: 0 15px 0 15px;
 	}
-	
+
 	p.footer{
 		text-align: right;
 		font-size: 11px;
@@ -56,7 +56,7 @@
 		padding: 0 10px 0 10px;
 		margin: 20px 0 0 0;
 	}
-	
+
 	#container{
 		margin: 10px;
 		border: 1px solid #D0D0D0;
@@ -66,19 +66,21 @@
 </head>
 <body>
 
+<p><a href="/welcome?lang=zh-tw">繁體中文</a> | <a href="/welcome?lang=en-us">English</a></p>
+
 <div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+	<h1><?php echo lang('welcome_header'); ?></h1>
 
 	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+		<p><?php echo lang('welcome_description'); ?></p>
 
-		<p>If you would like to edit this page you'll find it located at:</p>
+		<p><?php echo lang('welcome_edit_page'); ?></p>
 		<code>application/views/welcome_message.php</code>
 
-		<p>The corresponding controller for this page is found at:</p>
+		<p><?php echo lang('welcome_controller'); ?></p>
 		<code>application/controllers/welcome.php</code>
 
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+		<p><?php echo lang('welcome_user_guide'); ?></p>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
