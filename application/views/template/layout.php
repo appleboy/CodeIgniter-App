@@ -28,6 +28,11 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="/topic">首頁</a></li>
           <li><a href="/topic/create">新增</a></li>
+          <?php if($is_login): ?>
+          <li><a href="/auth/logout">登出</a></li>
+          <?php else: ?>
+          <li><a href="/auth/login">登入</a></li>
+          <?php endif; ?>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

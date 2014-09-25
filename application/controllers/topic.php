@@ -8,6 +8,7 @@ class topic extends CI_Controller
         $this->load->model('topic_model', 'topic');
         $this->load->library(['template', 'form_validation', 'ion_auth']);
         $this->load->helper('url');
+        $this->template->set('is_login', $this->ion_auth->logged_in());
     }
 
     public function index()
