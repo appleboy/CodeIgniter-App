@@ -49,6 +49,7 @@
             <tr>
               <th>#</th>
               <th>重要</th>
+              <th>建立者</th>
               <th>標題</th>
               <th>描述</th>
               <th>建立時間</th>
@@ -63,6 +64,7 @@
               <tr>
                 <td><?php echo ($key + 1); ?></td>
                 <td><?php echo $label; ?></td>
+                <td><?php echo isset($row->user->username) ? $row->user->username : ""; ?></td>
                 <td><?php echo htmlspecialchars($row->title); ?></td>
                 <td><?php echo htmlspecialchars($row->description); ?></td>
                 <td><?php echo $row->created_at; ?></td>

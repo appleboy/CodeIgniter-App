@@ -13,6 +13,7 @@ class topic extends CI_Controller
     public function index()
     {
         $rows = $this->topic
+            ->with('user')
             ->order_by('is_feature', 'desc')
             ->order_by('updated_at', 'desc')
             ->get_all();
