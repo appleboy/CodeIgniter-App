@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title><?php echo lang('welcome_header'); ?></title>
+	<title><?php echo lang('welcome.header'); ?></title>
 
 	<style type="text/css">
 
@@ -69,18 +69,18 @@
 <p><a href="/welcome?lang=zh-tw">繁體中文</a> | <a href="/welcome?lang=en-us">English</a></p>
 
 <div id="container">
-	<h1><?php echo lang('welcome_header'); ?></h1>
+	<h1><?php echo lang('welcome.header'); ?></h1>
 
 	<div id="body">
-		<p><?php echo lang('welcome_description'); ?></p>
+		<p><?php echo lang('welcome.description'); ?></p>
 
-		<p><?php echo lang('welcome_edit_page'); ?></p>
+		<p><?php echo lang('welcome.edit_page'); ?></p>
 		<code>application/views/welcome_message.php</code>
 
-		<p><?php echo lang('welcome_controller'); ?></p>
+		<p><?php echo lang('welcome.controller'); ?></p>
 		<code>application/controllers/welcome.php</code>
 
-		<p><?php echo lang('welcome_user_guide'); ?></p>
+		<p><?php echo lang('welcome.user_guide'); ?></p>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
