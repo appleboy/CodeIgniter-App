@@ -6,7 +6,7 @@ class topic extends CI_Controller
     {
         parent::__construct();
         $this->load->model('topic_model', 'topic');
-        $this->load->library(['form_validation', 'ion_auth']);
+        $this->load->library(['template', 'form_validation', 'ion_auth']);
         $this->load->helper('url');
     }
 
@@ -22,7 +22,8 @@ class topic extends CI_Controller
         ];
 
         $data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-        $this->load->view('topic/index', $data);
+        $this->template->add_title_segment('新聞列表');
+        $this->template->render('topic/index', $data);
     }
 
     public function create()
@@ -45,7 +46,8 @@ class topic extends CI_Controller
             $this->session->set_flashdata('message', '成功建立新聞');
             redirect('/topic', 'refresh');
         } else {
-            $this->load->view('topic/create');
+            $this->template->add_title_segment('建立新聞');
+            $this->template->render('topic/create');
         }
     }
 
@@ -74,13 +76,14 @@ class topic extends CI_Controller
                 'description' => $this->input->post('description'),
                 'is_feature' => $is_feature
             ]);
-            $this->session->set_flashdata('message', '成功更新新聞');
+            $this->session->set_flashdata('message', '成功編輯新聞');
             redirect('/topic', 'refresh');
         } else {
             $data = [
                 'item' => $row
             ];
-            $this->load->view('topic/update', $data);
+            $this->template->add_title_segment('編輯新聞');
+            $this->template->render('topic/update', $data);
         }
     }
 
