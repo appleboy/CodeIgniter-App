@@ -6,7 +6,7 @@ class topic extends CI_Controller
     {
         parent::__construct();
         $this->load->model('topic_model', 'topic');
-        $this->load->library('form_validation');
+        $this->load->library(['form_validation', 'ion_auth']);
         $this->load->helper('url');
     }
 
@@ -27,12 +27,17 @@ class topic extends CI_Controller
 
     public function create()
     {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        }
+
         //validate form input
         $this->form_validation->set_rules('title', '標題', 'required');
         $this->form_validation->set_rules('description', '描述', 'required');
         if ($this->form_validation->run() == true) {
             $is_feature = (bool) $this->input->post('is_feature');
             $this->topic->insert([
+                'user_id' => $this->session->userdata('user_id'),
                 'title' => $this->input->post('title'),
                 'description' => $this->input->post('description'),
                 'is_feature' => $is_feature
@@ -46,6 +51,10 @@ class topic extends CI_Controller
 
     public function edit($id)
     {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        }
+
         $id = (int) $id;
 
         $row = $this->topic->get($id);
@@ -77,6 +86,15 @@ class topic extends CI_Controller
 
     public function delete($id)
     {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login');
+        }
+
+        if (!$this->ion_auth->is_admin()) {
+            $this->session->set_flashdata('message', '您並無權限刪除資料');
+            redirect('topic');
+        }
+
         $id = (int) $id;
 
         $row = $this->topic->get($id);
