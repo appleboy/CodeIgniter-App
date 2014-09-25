@@ -28,7 +28,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="/topic">首頁</a></li>
           <li><a href="/topic/create">新增</a></li>
-          <?php if($is_login): ?>
+          <?php if(isset($is_login) and $is_login): ?>
           <li><a href="/auth/logout">登出</a></li>
           <?php else: ?>
           <li><a href="/auth/login">登入</a></li>
@@ -43,7 +43,7 @@
     </div>
     <?php if (!empty($message)):?>
     <div class="alert alert-success" role="alert">
-      <a href="#" class="alert-link"><?php echo $message;?></a>
+      <?php echo $message;?>
     </div>
     <?php endif;?>
     <?php echo $content; ?>
