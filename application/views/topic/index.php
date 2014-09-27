@@ -13,7 +13,7 @@
               <th>描述</th>
               <th>建立時間</th>
               <th>修改時間</th>
-              <th>動作</th>
+              <?php if(isset($is_login) and $is_login): ?><th>動作</th><?php endif;?>
             </tr>
           </thead>
           <tbody>
@@ -28,10 +28,12 @@
                 <td><?php echo htmlspecialchars($row->description); ?></td>
                 <td><?php echo $row->created_at; ?></td>
                 <td><?php echo $row->updated_at; ?></td>
+                <?php if(isset($is_login) and $is_login): ?>
                 <td>
                   <a href="/topic/delete/<?php echo $row->id; ?>" class="btn btn-sm btn-danger">刪除</a>
                   <a href="/topic/edit/<?php echo $row->id; ?>" class="btn btn-sm btn-info">修改</a>
                 </td>
+                <?php endif;?>
               </tr>
               <?php } ?>
           </tbody>
