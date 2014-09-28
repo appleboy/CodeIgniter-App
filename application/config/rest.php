@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
@@ -10,7 +10,7 @@
 |	Default: FALSE
 |
 */
-$config['force_https'] = FALSE;
+$config['force_https'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ $config['force_https'] = FALSE;
 |	Default: xml
 |
 */
-$config['rest_default_format'] = 'xml';
+$config['rest_default_format'] = 'json';
 
 /*
 |--------------------------------------------------------------------------
@@ -58,8 +58,7 @@ $config['rest_message_field_name'] = 'error';
 |	Default: false
 |
 */
-$config['enable_emulate_request'] = TRUE;
-
+$config['enable_emulate_request'] = true;
 
 /*
 |--------------------------------------------------------------------------
@@ -263,7 +262,7 @@ $config['rest_keys_table'] = 'keys';
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 |
 */
-$config['rest_enable_keys'] = FALSE;
+$config['rest_enable_keys'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -338,8 +337,7 @@ $config['rest_logs_table'] = 'logs';
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 |
 */
-$config['rest_enable_logging'] = FALSE;
-
+$config['rest_enable_logging'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -355,12 +353,12 @@ $config['rest_access_table'] = 'access';
 
 /*
 |--------------------------------------------------------------------------
-| REST Method Access Control 
+| REST Method Access Control
 |--------------------------------------------------------------------------
 |
-| When set to true REST_Controller will check the access table to see if 
+| When set to true REST_Controller will check the access table to see if
 | the API KEY can access that controller.  rest_enable_keys *must* be enabled
-| to use this. 
+| to use this.
 |
 |	FALSE
 |
@@ -374,8 +372,7 @@ CREATE TABLE `access` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 |
 */
-$config['rest_enable_access'] = FALSE;
-
+$config['rest_enable_access'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -386,7 +383,7 @@ $config['rest_enable_access'] = FALSE;
 | when false they will be php serialized.
 |
 */
-$config['rest_logs_json_params'] = FALSE;
+$config['rest_logs_json_params'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -421,7 +418,7 @@ $config['rest_limits_table'] = 'limits';
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 |
 */
-$config['rest_enable_limits'] = FALSE;
+$config['rest_enable_limits'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -434,7 +431,7 @@ $config['rest_enable_limits'] = FALSE;
 |	FALSE
 |
 */
-$config['rest_ignore_http_accept'] = FALSE;
+$config['rest_ignore_http_accept'] = false;
 
 /*
 |--------------------------------------------------------------------------
@@ -449,7 +446,7 @@ $config['rest_ignore_http_accept'] = FALSE;
 |	FALSE
 |
 */
-$config['rest_ajax_only'] = FALSE;
+$config['rest_ajax_only'] = false;
 
 /* End of file config.php */
 /* Location: ./system/application/config/rest.php */
