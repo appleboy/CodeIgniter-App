@@ -33,4 +33,64 @@ class topic extends REST_Controller
         $this->response($data);
     }
 
+    public function index_post()
+    {
+        if (!$this->ion_auth->logged_in()) {
+            $this->response(['error_text' => 'You are not loggin'], 403);
+        }
+
+        $this->topic->insert([
+            'title' => $this->put('title'),
+            'user_id' => $this->session->userdata('user_id'),
+            'description' => $this->put('description'),
+            'is_feature' => (bool) $this->put('is_feature')
+        ]);
+
+        $this->response(['success_text' => 'ok']);
+    }
+
+    public function index_put($id)
+    {
+        if (!$this->ion_auth->logged_in()) {
+            $this->response(['error_text' => 'You are not loggin'], 403);
+        }
+
+        $id = (int) $id;
+
+        $row = $this->topic->get($id);
+
+        if (empty($row)) {
+            $this->response(['error_text' => '404 NOT FOUND'], 404);
+        }
+
+        $this->topic->update($id, [
+            'title' => $this->put('title'),
+            'description' => $this->put('description'),
+            'is_feature' => (bool) $this->put('is_feature')
+        ]);
+
+        $this->response(['success_text' => 'ok']);
+    }
+
+    public function index_delete($id)
+    {
+        if (!$this->ion_auth->logged_in()) {
+            $this->response(['error_text' => 'You are not loggin'], 403);
+        }
+
+        if (!$this->ion_auth->is_admin()) {
+            $this->response(['error_text' => 'You don\'t have permission'], 403);
+        }
+
+        $id = (int) $id;
+
+        $row = $this->topic->get($id);
+
+        if (empty($row)) {
+            $this->response(['error_text' => '404 NOT FOUND'], 404);
+        }
+
+        $this->topic->delete($id);
+        $this->response(['success_text' => 'ok']);
+    }
 }
