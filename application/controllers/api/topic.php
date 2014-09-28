@@ -39,14 +39,17 @@ class topic extends REST_Controller
             $this->response(['error_text' => 'You are not loggin'], 403);
         }
 
-        $this->topic->insert([
+        $id = $this->topic->insert([
             'title' => $this->put('title'),
             'user_id' => $this->session->userdata('user_id'),
             'description' => $this->put('description'),
             'is_feature' => (bool) $this->put('is_feature')
         ]);
 
-        $this->response(['success_text' => 'ok']);
+        $this->response([
+            'id' => $id,
+            'success_text' => 'ok'
+        ]);
     }
 
     public function index_put($id)
