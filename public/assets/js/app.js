@@ -3,9 +3,19 @@
   var app = {
     init: function(){
       var self = this;
+      self.handlebarHelper();
       // load main template
       self.initTopicList();
       self.initDeleteButton();
+    },
+
+    handlebarHelper: function(){
+      Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+        if(v1 === v2) {
+          return options.fn(this);
+        }
+        return options.inverse(this);
+      });
     },
 
     template: function(id, data) {

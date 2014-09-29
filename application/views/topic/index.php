@@ -21,7 +21,7 @@
         {{#each items}}
         <tr>
           <td>{{@index}}</td>
-          <td></td>
+          <td>{{#ifCond is_feature "1"}}<span class='label label-warning'>置頂</span>{{/ifCond}}</td>
           <td>{{user.username}}</td>
           <td>{{title}}</td>
           <td>{{description}}</td>
