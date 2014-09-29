@@ -10,7 +10,7 @@ class topic extends REST_Controller
     {
         parent::__construct();
         $this->load->model('topic_model', 'topic');
-        $this->load->library(['ion_auth']);
+        $this->load->library(['ion_auth', 'form_validation']);
     }
 
     public function index_get()
@@ -21,7 +21,8 @@ class topic extends REST_Controller
             ->order_by('updated_at', 'desc')
             ->get_all();
         $data = [
-            'items' => $rows
+            'items' => $rows,
+            'is_login' => $this->ion_auth->logged_in()
         ];
 
         if (empty($rows)) {

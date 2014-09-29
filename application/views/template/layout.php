@@ -37,7 +37,7 @@
       </div><!--/.nav-collapse -->
     </div>
   </div>
-  <div class="container theme-showcase" role="main">
+  <div id="main" class="container theme-showcase" role="main">
     <div class="jumbotron">
 
     </div>
