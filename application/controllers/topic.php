@@ -18,6 +18,7 @@ class topic extends CI_Controller
         $this->template->add_css('/assets/css/alertify.default.css');
         $this->template->add_js('/assets/js/handlebars.js', true);
         $this->template->add_js('/assets/js/alertify.js', true);
+        $this->template->add_js('/assets/js/jquery.scrollTo.min.js', true);
         $this->template->add_js('/assets/js/app.js', true);
         $this->template->render('topic/index');
     }

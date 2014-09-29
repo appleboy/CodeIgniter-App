@@ -42,6 +42,7 @@ $route['default_controller'] = "topic";
 $route['404_override'] = '';
 
 $route['api/topic/(\d+)'] = "api/topic/index/$1";
+$route['api/topic/list'] = "api/topic/list";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

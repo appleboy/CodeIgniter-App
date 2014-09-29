@@ -13,7 +13,7 @@ class topic extends REST_Controller
         $this->load->library(['ion_auth', 'form_validation']);
     }
 
-    public function index_get()
+    public function list_get()
     {
         $rows = $this->topic
             ->with('user')
@@ -32,6 +32,19 @@ class topic extends REST_Controller
         $data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
         $this->response($data);
+    }
+
+    public function index_get($id)
+    {
+        $id = (int) $id;
+
+        $row = $this->topic->get($id);
+
+        if (empty($row)) {
+            $this->response(['error_text' => '404 NOT FOUND'], 404);
+        }
+
+        $this->response($row);
     }
 
     public function index_post()

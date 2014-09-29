@@ -6,7 +6,7 @@
       self.handlebarHelper();
       // load main template
       self.initTopicList();
-      self.initDeleteButton();
+      self.initAction();
     },
 
     handlebarHelper: function(){
@@ -28,16 +28,16 @@
 
     initTopicList: function() {
       var self = this;
-      $.get('/api/topic', function(data){
+      $.get('/api/topic/list', function(data){
         console.log(data);
         $('#main').append(self.template('topic-list', data));
       });
     },
 
-    initDeleteButton: function() {
+    initAction: function() {
+      var self = this;
       $(document).on('click', '.btn-danger', function(e) {
         e.preventDefault();
-        var self = this;
         var id = $(this).data('id');
         alertify.confirm("Do you want to delete this news?", function (e) {
           if (e) {
@@ -53,6 +53,24 @@
                 console.log(textStatus);
               }
             });
+          }
+        });
+      });
+
+      $(document).on('click', '.btn-info', function(e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+
+        $.ajax({
+          url: '/api/topic/' + id,
+          type: 'GET',
+          success: function(data) {
+            $('#editor').html(self.template('topic-editor', data));
+            $(document).scrollTo('#editor', 800 );
+          },
+          error: function(jqXHR, textStatus, errorThrown ) {
+            console.log(jqXHR);
+            console.log(textStatus);
           }
         });
       });

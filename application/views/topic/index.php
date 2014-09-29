@@ -39,5 +39,28 @@
       </table>
     </div>
   </div>
+  <div id="editor"></div>
+</script>
 
+<script id="handlebar-topic-editor" type="text/x-handlebars-template">
+  <div class="row">
+    <div class="col-md-12">
+      <form role="form" action="/topic/create" method="POST">
+        <div class="form-group">
+          <label for="title">標題</label>
+          <input type="text" class="form-control" id="title" name="title" value="{{title}}" placeholder="請輸入標題">
+        </div>
+        <div class="form-group">
+          <label for="description">描述</label>
+          <textarea class="form-control" rows="3" id="description" name="description">{{description}}</textarea>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="is_feature" {{#ifCond is_feature "1"}}checked{{/ifCond}}> 是否置頂
+          </label>
+        </div>
+        <button type="submit" class="btn btn-default">送出</button>
+      </form>
+    </div>
+  </div>
 </script>
