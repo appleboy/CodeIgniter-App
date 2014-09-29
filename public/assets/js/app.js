@@ -6,6 +6,7 @@
       self.handlebarHelper();
       // load main template
       self.initTopicList();
+      // load button action
       self.initAction();
     },
 
@@ -32,6 +33,14 @@
         $('#topic-list').remove();
         $('#main').append(self.template('topic-list', data));
       });
+    },
+
+    initEditor: function(data) {
+      var self = this;
+      data = data || {};
+
+      $('#editor').html(self.template('topic-editor', data));
+      $(document).scrollTo('#editor', 800 );
     },
 
     initAction: function() {
@@ -63,17 +72,14 @@
         var id = +$(this).data('id') || 0;
 
         if (id == 0) {
-          $('#editor').html(self.template('topic-editor'));
-          $(document).scrollTo('#editor', 800 );
-          return true;
+          return self.initEditor();
         }
 
         $.ajax({
           url: '/api/topic/' + id,
           type: 'GET',
           success: function(data) {
-            $('#editor').html(self.template('topic-editor', data));
-            $(document).scrollTo('#editor', 800 );
+            self.initEditor(data);
           },
           error: function(jqXHR, textStatus, errorThrown ) {
             console.log(jqXHR);
