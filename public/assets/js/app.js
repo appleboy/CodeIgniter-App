@@ -11,7 +11,11 @@
         }
       },
       error: function(jqXHR, textStatus, errorThrown ) {
-        alertify.error('伺服器發生錯誤');
+        if (jqXHR.responseJSON.error_text) {
+          alertify.error(jqXHR.responseJSON.error_text);
+        } else {
+          alertify.error('伺服器發生錯誤');
+        }
       }
     });
   };

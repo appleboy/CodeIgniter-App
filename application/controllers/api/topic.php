@@ -26,7 +26,7 @@ class topic extends REST_Controller
         ];
 
         if (empty($rows)) {
-            $this->response(['error_text' => '404 NOT FOUND'], 404);
+            $this->response(['error_text' => '無此主題'], 404);
         }
 
         $data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
@@ -41,7 +41,7 @@ class topic extends REST_Controller
         $row = $this->topic->get($id);
 
         if (empty($row)) {
-            $this->response(['error_text' => '404 NOT FOUND'], 404);
+            $this->response(['error_text' => '無此主題'], 404);
         }
 
         $this->response($row);
@@ -50,7 +50,7 @@ class topic extends REST_Controller
     public function index_post()
     {
         if (!$this->ion_auth->logged_in()) {
-            $this->response(['error_text' => 'You are not loggin'], 403);
+            $this->response(['error_text' => '您尚未登入'], 403);
         }
 
         $id = $this->topic->insert([
@@ -69,7 +69,7 @@ class topic extends REST_Controller
     public function index_put($id)
     {
         if (!$this->ion_auth->logged_in()) {
-            $this->response(['error_text' => 'You are not loggin'], 403);
+            $this->response(['error_text' => '您尚未登入'], 403);
         }
 
         $id = (int) $id;
@@ -77,7 +77,7 @@ class topic extends REST_Controller
         $row = $this->topic->get($id);
 
         if (empty($row)) {
-            $this->response(['error_text' => '404 NOT FOUND'], 404);
+            $this->response(['error_text' => '無此主題'], 404);
         }
 
         $this->topic->update($id, [
@@ -92,11 +92,11 @@ class topic extends REST_Controller
     public function index_delete($id)
     {
         if (!$this->ion_auth->logged_in()) {
-            $this->response(['error_text' => 'You are not loggin'], 403);
+            $this->response(['error_text' => '您尚未登入'], 403);
         }
 
         if (!$this->ion_auth->is_admin()) {
-            $this->response(['error_text' => 'You don\'t have permission'], 403);
+            $this->response(['error_text' => '您並無權限'], 403);
         }
 
         $id = (int) $id;
@@ -104,7 +104,7 @@ class topic extends REST_Controller
         $row = $this->topic->get($id);
 
         if (empty($row)) {
-            $this->response(['error_text' => '404 NOT FOUND'], 404);
+            $this->response(['error_text' => '無此主題'], 404);
         }
 
         $this->topic->delete($id);
