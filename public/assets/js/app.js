@@ -39,19 +39,22 @@
         e.preventDefault();
         var self = this;
         var id = $(this).data('id');
-        if (window.confirm("Do you want to delete this news?")) {
-          $.ajax({
-            url: '/api/topic/' + id,
-            type: 'DELETE',
-            success: function(data) {
-              $(self).parent().parent().remove();
-            },
-            error: function(jqXHR, textStatus, errorThrown ) {
-              console.log(jqXHR);
-              console.log(textStatus);
-            }
-          });
-        }
+        alertify.confirm("Do you want to delete this news?", function (e) {
+          if (e) {
+            $.ajax({
+              url: '/api/topic/' + id,
+              type: 'DELETE',
+              success: function(data) {
+                $(self).parent().parent().remove();
+                alertify.success("刪除成功");
+              },
+              error: function(jqXHR, textStatus, errorThrown ) {
+                console.log(jqXHR);
+                console.log(textStatus);
+              }
+            });
+          }
+        });
       });
     }
   };

@@ -14,7 +14,10 @@ class topic extends CI_Controller
     public function index()
     {
         $this->template->add_title_segment('新聞模組');
+        $this->template->add_css('/assets/css/alertify.core.css');
+        $this->template->add_css('/assets/css/alertify.default.css');
         $this->template->add_js('/assets/js/handlebars.js', true);
+        $this->template->add_js('/assets/js/alertify.js', true);
         $this->template->add_js('/assets/js/app.js', true);
         $this->template->render('topic/index');
     }
