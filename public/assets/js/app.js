@@ -83,6 +83,7 @@
     initAction: function() {
       var self = this;
       var that = this;
+      // remove single topic.
       $(document).on('click', '.btn-danger', function(e) {
         var self = this;
         e.preventDefault();
@@ -97,9 +98,9 @@
             });
           }
         });
-      });
-
-      $(document).on('click', '.btn-info, .btn-success', function(e) {
+      })
+      // initial editor.
+      .on('click', '.btn-info, .btn-success', function(e) {
         e.preventDefault();
         var id = +$(this).data('id') || 0;
 
@@ -112,9 +113,9 @@
             self.initEditor(data);
           }
         });
-      });
-
-      $(document).on('click', '.btn-default', function(e) {
+      })
+      // update or create topic.
+      .on('click', '.btn-default', function(e) {
         e.preventDefault();
         var id = +$(this).data('id') || 0;
 
