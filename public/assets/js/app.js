@@ -1,5 +1,21 @@
 (function($){
 
+  var req = function(type, url, object) {
+    $.ajax({
+      url: url,
+      type: type,
+      data: (object.data) ? object.data : {},
+      success: function(data) {
+        if (object.cb) {
+          object.cb(data);
+        }
+      },
+      error: function(jqXHR, textStatus, errorThrown ) {
+        alertify.error('伺服器發生錯誤');
+      }
+    });
+  };
+
   var app = {
     init: function(){
       var self = this;
@@ -8,6 +24,21 @@
       self.initTopicList();
       // load button action
       self.initAction();
+    },
+
+    api: {
+      GET: function(url, object) {
+        req('GET', url, object);
+      },
+      POST: function(url, object) {
+        req('POST', url, object);
+      },
+      PUT: function(url, object) {
+        req('PUT', url, object);
+      },
+      DELETE: function(url, object) {
+        req('DELETE', url, object);
+      }
     },
 
     handlebarHelper: function(){
@@ -29,9 +60,11 @@
 
     initTopicList: function() {
       var self = this;
-      $.get('/api/topic/list', function(data){
-        $('#topic-list').remove();
-        $('#main').append(self.template('topic-list', data));
+      self.api.GET('/api/topic/list', {
+        cb: function(data) {
+          $('#topic-list').remove();
+          $('#main').append(self.template('topic-list', data));
+        }
       });
     },
 
@@ -45,22 +78,17 @@
 
     initAction: function() {
       var self = this;
+      var that = this;
       $(document).on('click', '.btn-danger', function(e) {
         var self = this;
         e.preventDefault();
         var id = $(this).data('id');
         alertify.confirm("Do you want to delete this news?", function (e) {
           if (e) {
-            $.ajax({
-              url: '/api/topic/' + id,
-              type: 'DELETE',
-              success: function(data) {
+            that.api.DELETE('/api/topic/' + id, {
+              cb: function(data) {
                 $(self).parent().parent().remove();
                 alertify.success("刪除成功");
-              },
-              error: function(jqXHR, textStatus, errorThrown ) {
-                console.log(jqXHR);
-                console.log(textStatus);
               }
             });
           }
@@ -75,15 +103,9 @@
           return self.initEditor();
         }
 
-        $.ajax({
-          url: '/api/topic/' + id,
-          type: 'GET',
-          success: function(data) {
+        self.api.GET('/api/topic/' + id, {
+          cb: function(data) {
             self.initEditor(data);
-          },
-          error: function(jqXHR, textStatus, errorThrown ) {
-            console.log(jqXHR);
-            console.log(textStatus);
           }
         });
       });
@@ -98,16 +120,13 @@
           is_feature: +$("input[name='is_feature']").prop('checked')
         };
 
-        $.ajax({
-          url: (id > 0) ? '/api/topic/' + id : '/api/topic',
-          type: (id > 0) ? 'PUT' : 'POST',
+        var type = (id > 0) ? 'PUT' : 'POST';
+        var url = (id > 0) ? '/api/topic/' + id : '/api/topic';
+
+        self.api[type](url, {
           data: data,
-          success: function(data) {
+          cb: function() {
             self.initTopicList();
-          },
-          error: function(jqXHR, textStatus, errorThrown ) {
-            console.log(jqXHR);
-            console.log(textStatus);
           }
         });
       });
