@@ -23,8 +23,24 @@ class topic extends CI_Controller
         ];
 
         $data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-        $this->template->add_title_segment('新聞列表');
+        $this->template->add_title_segment('新聞模組');
         $this->template->render('topic/index', $data);
+    }
+
+    public function items()
+    {
+        $rows = $this->topic
+            ->with('user')
+            ->order_by('is_feature', 'desc')
+            ->order_by('updated_at', 'desc')
+            ->get_all();
+        $data = [
+            'items' => $rows
+        ];
+
+        $data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+        $this->template->add_title_segment('新聞列表');
+        $this->template->render('topic/items', $data);
     }
 
     public function create()
