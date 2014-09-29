@@ -1,6 +1,7 @@
 <script id="handlebar-topic-list" type="text/x-handlebars-template">
+  <div id="topic-list">
   <div class="page-header">
-    <h1>新聞列表</h1>
+    <h1>新聞列表&nbsp;<button type="button" class="btn btn-success">建立新聞</button></h1>
   </div>
   <div class="row">
     <div class="col-md-12">
@@ -40,26 +41,27 @@
     </div>
   </div>
   <div id="editor"></div>
+  </div>
 </script>
 
 <script id="handlebar-topic-editor" type="text/x-handlebars-template">
   <div class="row">
     <div class="col-md-12">
-      <form role="form" action="/topic/create" method="POST">
+      <form role="form" action="/topic" method="POST">
         <div class="form-group">
           <label for="title">標題</label>
-          <input type="text" class="form-control" id="title" name="title" value="{{title}}" placeholder="請輸入標題">
+          <input type="text" class="form-control title" id="title" name="title" value="{{title}}" placeholder="請輸入標題">
         </div>
         <div class="form-group">
           <label for="description">描述</label>
-          <textarea class="form-control" rows="3" id="description" name="description">{{description}}</textarea>
+          <textarea class="form-control description" rows="3" id="description" name="description">{{description}}</textarea>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="is_feature" {{#ifCond is_feature "1"}}checked{{/ifCond}}> 是否置頂
+            <input class="is_feature" type="checkbox" name="is_feature" value="1" {{#ifCond is_feature "1"}}checked{{/ifCond}}> 是否置頂
           </label>
         </div>
-        <button type="submit" class="btn btn-default">送出</button>
+        <button type="submit" class="btn btn-default" data-id="{{id}}">送出</button>
       </form>
     </div>
   </div>

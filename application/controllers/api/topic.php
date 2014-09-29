@@ -54,10 +54,10 @@ class topic extends REST_Controller
         }
 
         $id = $this->topic->insert([
-            'title' => $this->put('title'),
+            'title' => $this->post('title'),
             'user_id' => $this->session->userdata('user_id'),
-            'description' => $this->put('description'),
-            'is_feature' => (bool) $this->put('is_feature')
+            'description' => $this->post('description'),
+            'is_feature' => (bool) $this->post('is_feature')
         ]);
 
         $this->response([
