@@ -44,3 +44,9 @@ location / {
   try_files $uri $uri/ /index.php;
 }
 ```
+
+Import the SQL structure
+
+```
+$ mysql -u root -p app < sql/app.sql
+```
