@@ -1,0 +1,28 @@
+{
+  "name": "CodeIgniter-App",
+  "version": "0.0.1",
+  "description": "Integrate RESTfull API, Base Model, Ion Auth module and template module",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appleboy/CodeIgniter-App.git"
+  },
+  "keywords": [
+    "CodeIgniter",
+    "RESTful"
+  ],
+  "author": "Bo-Yi Wu",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/appleboy/CodeIgniter-App/issues"
+  },
+  "homepage": "https://github.com/appleboy/CodeIgniter-App",
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "gulp": "^3.8.8",
+    "gulp-fixmyjs": "0.0.10"
+  }
+}
