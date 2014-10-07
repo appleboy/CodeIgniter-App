@@ -14,7 +14,7 @@ Integrate RESTfull API, Base Model, Ion Auth module and template module.
 
 [1]: https://github.com/benedmunds/CodeIgniter-Ion-Auth
 [2]: https://github.com/chriskacerguis/codeigniter-restserver
-[3]: https://github.com/jamierumbelow/codeigniter-base-model
+[3]: https://github.com/appleboy/Codeigniter-Base-Model
 [4]: https://github.com/appleboy/CodeIgniter-Template
 [5]: https://github.com/appleboy/CodeIgniter-i18n
 [6]: https://github.com/appleboy/CodeIgniter-Native-Session
