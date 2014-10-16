@@ -54,7 +54,7 @@ if (defined('ENVIRONMENT')) {
  * as this file.
  *
  */
-    $system_path = '../system';
+    $system_path = __DIR__ . '/../system';
 
 /*
  *---------------------------------------------------------------
@@ -70,7 +70,7 @@ if (defined('ENVIRONMENT')) {
  * NO TRAILING SLASH!
  *
  */
-    $application_folder = '../application';
+    $application_folder = __DIR__ . '/../application';
 
 /*
  * --------------------------------------------------------------------
