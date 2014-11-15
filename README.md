@@ -20,7 +20,7 @@ Integrate RESTfull API, Base Model, Ion Auth module and template module.
 [6]: https://github.com/appleboy/CodeIgniter-Native-Session
 [7]: http://handlebarsjs.com/
 
-## Setup
+## Installtaion
 
 add new virtual hostname on `hosts` file (`/etc/hosts`)
 
