@@ -1,6 +1,6 @@
 # CodeIgniter App
 
-Integrate RESTfull API, Base Model, Ion Auth module and template module.
+Integrate RESTfull API, Base Model, Ion Auth module and Template module.
 
 ## Features
 
