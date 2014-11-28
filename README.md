@@ -53,5 +53,5 @@ $ mysql -u root -p app < sql/app.sql
 
 ## Screenshot
 
-<img src="https://raw.github.com/appleboy/CodeIgniter-App/master/screenshot/screenshot.png" alt="screenshot" />
+<img src="https://raw.githubusercontent.com/appleboy/CodeIgniter-App/master/screenshot/screenshot.png" alt="screenshot" />
 
