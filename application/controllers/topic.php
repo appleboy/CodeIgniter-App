@@ -50,7 +50,7 @@ class topic extends CI_Controller
         $this->form_validation->set_rules('description', '描述', 'required');
         if ($this->form_validation->run() == true) {
             $is_feature = (bool) $this->input->post('is_feature');
-            $this->topic->insert([
+            $this->topic->create([
                 'user_id' => $this->session->userdata('user_id'),
                 'title' => $this->input->post('title'),
                 'description' => $this->input->post('description'),
