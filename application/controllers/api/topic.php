@@ -53,7 +53,7 @@ class topic extends REST_Controller
             $this->response(['error_text' => '您尚未登入'], 403);
         }
 
-        $id = $this->topic->insert([
+        $id = $this->topic->create([
             'title' => $this->post('title'),
             'user_id' => $this->session->userdata('user_id'),
             'description' => $this->post('description'),
