@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = true;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'travis';
-$db['default']['password'] = '';
+$db['default']['username'] = 'homestead';
+$db['default']['password'] = 'secret';
 $db['default']['database'] = 'app';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
