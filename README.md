@@ -53,7 +53,7 @@ $ mysql -u root -p app < sql/app.sql
 
 ## Installtaion with [Homestead](http://laravel.com/docs/4.2/homestead)
 
-Please read [ChineseB Blog](http://blog.wu-boy.com/2014/12/codeigniter-with-homestead-development/) or refer the following steps.
+Please read [Chinese Blog](http://blog.wu-boy.com/2014/12/codeigniter-with-homestead-development/) or refer the following steps.
 
 Clone the project init `/home/git` foloder.
 
